@@ -1,0 +1,42 @@
+\documentclass{article} 
+\usepackage{pgfplots}
+
+% Grouping the common style settings here to make the code below easier to read
+\pgfkeys{/pgfplots/Axis Style/.style={
+    width=7.5cm, height=5cm,
+    axis x line=center, 
+    axis y line=middle, 
+    samples=100,
+    ymin=-3, ymax=3,
+    xmin=-4.0, xmax=4.0,
+    domain=-pi:pi
+}}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    Axis Style,
+    xtick={
+         -3.14159,
+        3.14159
+    },
+    xticklabels={
+         $-\frac{\pi}{a}$,
+        $\frac{\pi}{a}$
+    },
+     ytick={
+         -2,
+        1
+    },
+    yticklabels={
+         $-2t$,
+        $t$
+    }
+]
+
+\addplot [mark=none, ultra thick, black] { -2*cos(deg(x))};
+\end{axis}
+\end{tikzpicture}
+
+
+\end{document}
